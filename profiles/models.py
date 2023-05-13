@@ -22,7 +22,7 @@ class Profile(models.Model):
         size=[150, 150],
         crop=["middle", "center"],
         force_format="WEBP",
-        default="../default_avatar_buqmfw",
+        default="../default-avatar_buqmfw",
     )
 
     class Meta:
