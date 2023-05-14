@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "dj_rest_auth.registration",
+    "corsheaders",
     "profiles",
     "posts",
     "comments",
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -156,9 +158,10 @@ MEDIA_URL = "/project-5/media/"
 DJANGORESIZED_DEFAULT_QUALITY = 90
 DJANGORESIZED_DEFAULT_KEEP_META = False
 
-# Allauth
+# Allauth / dj-rest-auth
 
 SITE_ID = 1
+OLD_PASSWORD_FIELD_ENABLED = True
 
 
 # Rest Framework
@@ -178,6 +181,10 @@ REST_USE_JWT = True
 REST_AUTH_SERIALIZERS = {
     "USER_DETAILS_SERIALIZER": "pokebox.serializers.CurrentUserSerializer"
 }
+if "DEV" not in os.environ:
+    REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
+        "rest_framework.renderers.JSONRenderer",
+    ]
 
 
 # JWT
@@ -185,3 +192,10 @@ REST_AUTH_SERIALIZERS = {
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = "p5-pokebox-auth"
 JWT_AUTH_REFRESH_COOKIE = "p5-pokebox-refresh-token"
+JWT_AUTH_SAMESITE = "None"
+
+
+# CORS
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
