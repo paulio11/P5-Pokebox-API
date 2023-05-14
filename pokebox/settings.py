@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "cloudinary",
     "rest_framework",
     "profiles",
+    "posts",
 ]
 
 MIDDLEWARE = [
@@ -133,13 +134,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # My Variables #
 ################
 
+
 # Cloudinary
+
 CLOUDINARY_STORAGE = {"CLOUDINARY_URL": os.environ.get("CLOUDINARY_URL")}
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 MEDIA_URL = "/project-5/media/"
 
 
 # Django-Resized
+
 DJANGORESIZED_DEFAULT_QUALITY = 90
 DJANGORESIZED_DEFAULT_KEEP_META = False
 
