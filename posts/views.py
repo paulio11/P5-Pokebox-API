@@ -4,12 +4,14 @@ from pokebox.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
 from django.shortcuts import get_object_or_404
+from django.db.models import Count
 
 
 class PostList(generics.ListCreateAPIView):
     """
     A view that provides the list of Posts and allows authenticated users to
-    create new Posts.
+    create new Posts. Query can be filtered by 'owner' and is annotated with a
+    count of distinct likes.
     """
 
     serializer_class = PostSerializer
@@ -17,10 +19,12 @@ class PostList(generics.ListCreateAPIView):
 
     def get_queryset(self):
         """
-        Optionally filters the Posts based on the 'owner' parameter in the
-        request.
+        Returns a queryset that includes a count of distinct likes and can be
+        filtered by 'owner'.
         """
-        queryset = Post.objects.all()
+        queryset = Post.objects.annotate(
+            like_count=Count("likes", distinct=True),
+        ).order_by("-created")
         username = self.request.query_params.get("owner", None)
         if username is not None:
             owner = get_object_or_404(User, username=username)
@@ -38,9 +42,11 @@ class PostList(generics.ListCreateAPIView):
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     A view that provides detail of a Post. Only the owner can update or delete
-    the Post.
+    the Post. The query is annotated with a count of distinct likes.
     """
 
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = PostSerializer
-    queryset = Post.objects.all()
+    queryset = Post.objects.annotate(
+        like_count=Count("likes", distinct=True),
+    ).order_by("-created")
