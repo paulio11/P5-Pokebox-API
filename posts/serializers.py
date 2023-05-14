@@ -3,6 +3,7 @@ from .models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
+    # include docstring when complete
     owner = serializers.ReadOnlyField(source="owner.username")
     created = serializers.SerializerMethodField()
 

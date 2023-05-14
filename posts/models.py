@@ -5,9 +5,8 @@ from django_resized import ResizedImageField
 
 class Post(models.Model):
     """
-    Represents a Post created by a User. Includes a creation timestamp,
-    text body, and optional image.
-    Posts are ordered by creation date.
+    Represents a Post created by a User. Includes a creation timestamp, text
+    body, and optional image. Posts are ordered by creation date.
     """
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

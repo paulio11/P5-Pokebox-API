@@ -35,8 +35,8 @@ class ProfileList(generics.ListAPIView):
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
-    A view that provides detail of a Profile.
-    Only the owner can update the Profile.
+    A view that provides detail of a Profile. Only the owner can update the
+    Profile.
     """
 
     queryset = Profile.objects.all()

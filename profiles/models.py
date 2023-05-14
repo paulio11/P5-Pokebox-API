@@ -7,9 +7,9 @@ from django_resized import ResizedImageField
 
 class Profile(models.Model):
     """
-    Represents a user's profile. Includes information about the user, their favorite
-    pokemon, a list of pokemon IDs, and an avatar.
-    Profiles are ordered by creation date.
+    Represents a user's profile. Includes information about the user, their
+    favorite pokemon, a list of pokemon IDs, and an avatar. Profiles are
+    ordered by creation date.
     """
 
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
