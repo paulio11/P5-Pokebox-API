@@ -171,3 +171,11 @@ REST_FRAMEWORK = {
         )
     ]
 }
+REST_USE_JWT = True
+
+
+# JWT
+
+JWT_AUTH_SECURE = True
+JWT_AUTH_COOKIE = "p5-pokebox-auth"
+JWT_AUTH_REFRESH_COOKIE = "p5-pokebox-refresh-token"
