@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from rest_framework import generics, permissions
+from pokebox.permissions import IsOwnerOrReadOnly
 from .models import Comment
 from posts.models import Post
 from .serializers import CommentSerializer, CommentDetailSerializer
@@ -26,6 +27,24 @@ class CommentList(generics.ListAPIView):
             post = get_object_or_404(Post, id=post)
             queryset = querset.filter(post=post)
         return queryset
+
+    def perform_create(self, serializer):
+        """
+        Sets the owner of a new Comment to the authenticated user making the
+        request.
+        """
+        serializer.save(owner=self.request.user)
+
+
+class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    A view that provides detail of a Comment. Only the owner can update or
+    delete the Comment.
+    """
+
+    serializer_class = CommentDetailSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Comment.objects.all()
 
     def perform_create(self, serializer):
         """
