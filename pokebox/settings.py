@@ -155,5 +155,19 @@ MEDIA_URL = "/project-5/media/"
 DJANGORESIZED_DEFAULT_QUALITY = 90
 DJANGORESIZED_DEFAULT_KEEP_META = False
 
+# Allauth
 
 SITE_ID = 1
+
+
+# Rest Framework
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        (
+            "rest_framework.authentication.SessionAuthentication"
+            if "DEV" in os.environ
+            else "dj_rest_auth.jwt_auth.JWTCookieAuthentication"
+        )
+    ]
+}
