@@ -172,6 +172,9 @@ REST_FRAMEWORK = {
     ]
 }
 REST_USE_JWT = True
+REST_AUTH_SERIALIZERS = {
+    "USER_DETAILS_SERIALIZER": "pokebox.serializers.CurrentUserSerializer"
+}
 
 
 # JWT
