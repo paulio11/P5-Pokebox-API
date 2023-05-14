@@ -7,7 +7,7 @@ from posts.models import Post
 from .serializers import CommentSerializer, CommentDetailSerializer
 
 
-class CommentList(generics.ListAPIView):
+class CommentList(generics.ListCreateAPIView):
     """
     A view that provides the list of Comments and allows authenticated users
     to create new Comments.
@@ -21,11 +21,11 @@ class CommentList(generics.ListAPIView):
         Optionally filters the Comments based on the 'post' parameter in the
         request.
         """
-        querset = Comment.objects.all()
+        queryset = Comment.objects.all()
         post = self.request.query_params.get("post", None)
         if post is not None:
             post = get_object_or_404(Post, id=post)
-            queryset = querset.filter(post=post)
+            queryset = queryset.filter(post=post)
         return queryset
 
     def perform_create(self, serializer):
