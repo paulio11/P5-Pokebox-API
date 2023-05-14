@@ -19,3 +19,12 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ["id", "owner", "post", "created", "body"]
+
+
+class CommentDetailSerializer(CommentSerializer):
+    """
+    Serializer for a detailed view of a Comment, extending CommentSerializer
+    and adding a read-only 'post' field sourced from the post's ID.
+    """
+
+    post = serializers.ReadOnlyField(source="post.id")
