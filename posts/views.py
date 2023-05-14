@@ -33,3 +33,14 @@ class PostList(generics.ListCreateAPIView):
         request.
         """
         serializer.save(owner=self.request.user)
+
+
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    A view that provides detail of a Post. Only the owner can update or delete
+    the Post.
+    """
+
+    permission_classes = [IsOwnerOrReadOnly]
+    serializer_class = PostSerializer
+    queryset = Post.objects.all()
