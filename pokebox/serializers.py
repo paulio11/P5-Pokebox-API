@@ -10,7 +10,7 @@ class CurrentUserSerializer(UserDetailsSerializer):
     """
 
     profile_id = serializers.ReadOnlyField(source="profile.id")
-    profile_avatar = serializer.ReadOnlyField(source="profile.avatar.url")
+    profile_avatar = serializers.ReadOnlyField(source="profile.avatar.url")
     profile_fav = serializers.ReadOnlyField(source="profile.favorite")
 
     class Meta(UserDetailsSerializer.Meta):
