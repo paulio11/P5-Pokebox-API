@@ -14,7 +14,10 @@ class Profile(models.Model):
 
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
-    about = models.TextField(max_length=400, blank=True)
+    about = models.TextField(
+        max_length=400,
+        default="Hello! I am a new trainer just starting my Pokémon adventure.",
+    )
     favorite = models.CharField(max_length=30, blank=True)
     pokemon = ArrayField(models.IntegerField(), default=list)
     avatar = ResizedImageField(
