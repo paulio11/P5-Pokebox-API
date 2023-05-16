@@ -17,6 +17,7 @@ class Profile(models.Model):
     about = models.TextField(
         max_length=400,
         default="Hello! I am a new trainer just starting my Pokémon adventure.",
+        blank=True,
     )
     favorite = models.CharField(max_length=30, blank=True)
     pokemon = ArrayField(models.IntegerField(), default=list)
