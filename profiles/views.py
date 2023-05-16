@@ -3,6 +3,7 @@ from .models import Profile
 from .serializers import ProfileSerializer
 from django.shortcuts import get_object_or_404
 from pokebox.permissions import IsOwnerOrReadOnly
+from django.contrib.auth.models import User
 
 
 class ProfileList(generics.ListAPIView):
@@ -20,6 +21,11 @@ class ProfileList(generics.ListAPIView):
         queryset = super().get_queryset()
         sort_by = self.request.query_params.get("sort_by", "owner")
         sort_order = self.request.query_params.get("sort_order", "asc")
+        username = self.request.query_params.get("owner", None)
+
+        if username is not None:
+            owner = get_object_or_404(User, username=username)
+            queryset = queryset.filter(owner=owner)
 
         if sort_by == "pokemon":
             sort_by = "pokemon__len"
