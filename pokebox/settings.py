@@ -198,4 +198,7 @@ JWT_AUTH_SAMESITE = "None"
 # CORS
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://project-5-pokebox.herokuapp.com/",
+]
