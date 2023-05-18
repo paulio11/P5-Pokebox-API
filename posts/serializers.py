@@ -13,6 +13,8 @@ class PostSerializer(serializers.ModelSerializer):
     created = serializers.SerializerMethodField()
     like_id = serializers.SerializerMethodField()
     like_count = serializers.ReadOnlyField()
+    profile_id = serializers.ReadOnlyField(source="owner.profile.id")
+    profile_avatar = serializers.ReadOnlyField(source="owner.profile.avatar.url")
 
     def get_like_id(self, obj):
         """
@@ -33,4 +35,14 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ["id", "owner", "created", "body", "image", "like_id", "like_count"]
+        fields = [
+            "id",
+            "owner",
+            "created",
+            "body",
+            "image",
+            "like_id",
+            "like_count",
+            "profile_id",
+            "profile_avatar",
+        ]

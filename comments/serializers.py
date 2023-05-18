@@ -10,7 +10,8 @@ class CommentSerializer(serializers.ModelSerializer):
     """
 
     owner = serializers.ReadOnlyField(source="owner.username")
-    # add user profile and avatar here once serializer is created
+    profile_id = serializers.ReadOnlyField(source="owner.profile.id")
+    profile_avatar = serializers.ReadOnlyField(source="owner.profile.avatar.url")
     created = serializers.SerializerMethodField()
 
     def get_created(self, obj):
@@ -18,7 +19,15 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ["id", "owner", "post", "created", "body"]
+        fields = [
+            "id",
+            "owner",
+            "post",
+            "created",
+            "body",
+            "profile_id",
+            "profile_avatar",
+        ]
 
 
 class CommentDetailSerializer(CommentSerializer):
