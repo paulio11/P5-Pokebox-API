@@ -13,7 +13,11 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     body = models.TextField(max_length=400)
     image = ResizedImageField(
-        upload_to="images/", blank=True, size=[600, None], force_format="WEBP"
+        upload_to="images/",
+        blank=True,
+        null=True,
+        size=[600, None],
+        force_format="WEBP",
     )
 
     class Meta:
