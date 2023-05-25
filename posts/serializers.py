@@ -3,6 +3,18 @@ from .models import Post
 from likes.models import Like
 
 
+class NullableImageField(serializers.ImageField):
+    """
+    Custom serializer field that allows a file upload or a null/empty value.
+    """
+
+    def to_internal_value(self, data):
+        if not data:
+            return None
+
+        return super().to_internal_value(data)
+
+
 class PostSerializer(serializers.ModelSerializer):
     """
     Serializer for the Post model, providing a read-only 'owner' and
@@ -15,6 +27,7 @@ class PostSerializer(serializers.ModelSerializer):
     like_count = serializers.ReadOnlyField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
     profile_avatar = serializers.ReadOnlyField(source="owner.profile.avatar.url")
+    image = serializers.ImageField(allow_null=True, required=False)
 
     def get_like_id(self, obj):
         """
