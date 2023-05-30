@@ -50,4 +50,5 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     queryset = Post.objects.annotate(
         like_count=Count("likes", distinct=True),
+        comment_count=Count("comments", distinct=True),
     ).order_by("-created")
