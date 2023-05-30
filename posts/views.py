@@ -24,6 +24,7 @@ class PostList(generics.ListCreateAPIView):
         """
         queryset = Post.objects.annotate(
             like_count=Count("likes", distinct=True),
+            comment_count=Count("comments", distinct=True),
         ).order_by("-created")
         username = self.request.query_params.get("owner", None)
         if username is not None:

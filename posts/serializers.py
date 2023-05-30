@@ -27,6 +27,9 @@ class PostSerializer(serializers.ModelSerializer):
     like_count = serializers.ReadOnlyField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
     profile_avatar = serializers.ReadOnlyField(source="owner.profile.avatar.url")
+    comment_count = serializers.ReadOnlyField()
+
+    # do something with this:
     image = serializers.ImageField(allow_null=True, required=False)
 
     def get_like_id(self, obj):
@@ -58,4 +61,5 @@ class PostSerializer(serializers.ModelSerializer):
             "like_count",
             "profile_id",
             "profile_avatar",
+            "comment_count",
         ]
