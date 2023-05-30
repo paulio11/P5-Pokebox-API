@@ -2,3 +2,4 @@ env.py
 venv/
 .DS_Store
 */migrations/
+backups/
