@@ -5,7 +5,26 @@ from .models import Post
 from .serializers import PostSerializer
 from django.shortcuts import get_object_or_404
 from django.db.models import Count
+from django_filters import rest_framework
 from django_filters.rest_framework import DjangoFilterBackend
+
+
+class PostFilter(rest_framework.FilterSet):
+    has_image = rest_framework.BooleanFilter(
+        field_name="image", method="filter_has_image"
+    )
+
+    def filter_has_image(self, queryset, name, value):
+        if value:
+            return queryset.exclude(image="")
+        return queryset
+
+    class Meta:
+        model = Post
+        fields = {
+            "owner__profile": ["exact"],
+            "likes__owner__profile": ["exact"],
+        }
 
 
 class PostList(generics.ListCreateAPIView):
@@ -17,7 +36,7 @@ class PostList(generics.ListCreateAPIView):
     ).order_by("-created")
     filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
     ordering_fields = ["like_count", "comment_count", "created"]
-    filterset_fields = ["owner__profile", "likes__owner__profile"]
+    filterset_class = PostFilter
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
