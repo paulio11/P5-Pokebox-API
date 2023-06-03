@@ -23,10 +23,10 @@ class Profile(models.Model):
     pokemon = ArrayField(models.IntegerField(), default=list)
     avatar = ResizedImageField(
         upload_to="avatars/",
-        size=[150, 150],
+        size=[300, 300],
         crop=["middle", "center"],
         force_format="WEBP",
-        default="../default-avatar_buqmfw",
+        default="../default_avatar_mr9nxd",
     )
 
     class Meta:
