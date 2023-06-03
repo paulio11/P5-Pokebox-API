@@ -47,7 +47,7 @@ class PostSerializer(serializers.ModelSerializer):
         """
         Returns a custom string representation for the 'created' field.
         """
-        return obj.created.strftime("%dth %B %Y, %H:%M")
+        return obj.created.strftime("%b %d %Y, %H:%M")
 
     class Meta:
         model = Post
