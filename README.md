@@ -8,7 +8,22 @@
 
 ## Contents
 
+1. [Introduction](#introduction)
+2. [Project Planning](#project-planning)
+3. [GitHub Project](#github-project)
+4. [Database Schema](#database-schema)
+5. [Serializers](#serializers)
+6. [Views](#views)
+7. [Permissions](#permissions)
+8. [Project Settings](#project-settings)
+9. [Testing](#testing)
+10. [Deployment](#deployment)
+11. [Technologies](#technologies)
+12. [Credits](#credits)
+
 ## Introduction
+
+[Back to top 🔺](#pokébox-backend--api)
 
 ## Project Planning
 
@@ -17,6 +32,8 @@
 The GitHub project board feature was used to keep track of what I was working on and what still needed to be done. I created a user story for each feature, or an issue for each to do and bug, then moved them when necessary throughout the development of both front and back-end.
 
 [Link to Project Board](https://github.com/users/paulio11/projects/4)
+
+**Project Board:**
 
 ![GitHub Project Board](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/readme-projectboard.png)
 
@@ -29,7 +46,9 @@ The models required for this project are:
 - **Like** - for user liking diary entries.
 - **Profile** - for a user's profile information and Pokémon collection.
 
-![Database Schema](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/readme-schema.png)
+**Entity-Relationship Diagram:**
+
+![Entity-Relationship Diagram](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/readme-schema.png)
 
 #### Post Model
 
@@ -71,6 +90,8 @@ The models required for this project are:
 | avatar   | ResizedImageField | upload_to="avatars/", size=[300, 300], crop=["middle", "center"], force_format="WEBP", default="..." | For the user's avatar, resized and cropped to a suitable size, has a default image                                       |
 
 The profile object is automatically created for each new user using a `post_save` signal.
+
+[Back to top 🔺](#pokébox-backend--api)
 
 ## Serializers
 
@@ -116,6 +137,8 @@ Defined by `REST_AUTH_SERIALIZERS` variable in settings. The current user serial
 
 - **Profile ID** - Provides the current user's profile ID, used on the front-end to provide a link to their profile.
 
+[Back to top 🔺](#pokébox-backend--api)
+
 ## Views
 
 Each view provides a response to the front-end based on the request. They are responsible for generating the appropriate JSON output using the defined serializer and asigning correct permissions.
@@ -160,11 +183,17 @@ Each view provides a response to the front-end based on the request. They are re
 - **`logout_route()`**
   - This view sends a response that sets the two cookies used for authentication as empty. This effectively logs out the user. This is a fix for the DJ Rest Auth logout view present in the version being used.
 
+[Back to top 🔺](#pokébox-backend--api)
+
 ## Permissions
+
+This project uses one custom permission `IsOwnerOrReadOnly`. This is used in the PostDetail, CommentDetail, ProfileDetail and LikeDetail views. This permission grants full CRUD access to the owner of the object and read-only access to others.
+
+[Back to top 🔺](#pokébox-backend--api)
 
 ## Project Settings
 
-The following are the non-default variables defined in [settings.py](https://github.com/paulio11/project-5-backend/blob/main/pokebox/settings.py):
+The following are the non-default variables defined in [settings.py](https://github.com/paulio11/project-5-backend/blob/main/pokebox/settings.py) essential for this project:
 
 ### Cloudinary
 
@@ -199,10 +228,63 @@ The following are the non-default variables defined in [settings.py](https://git
 - `CORS_ALLOW_CREDENTIALS`: Enables sending credentials (e.g., cookies) in cross-origin requests.
 - `CORS_ALLOWED_ORIGINS`: Lists the allowed origins for cross-origin requests.
 
+[Back to top 🔺](#pokébox-backend--api)
+
 ## Testing
+
+Testing information can be found [here](https://github.com/paulio11/project-5-backend/blob/main/TESTING.md).
+
+[Back to top 🔺](#pokébox-backend--api)
 
 ## Deployment
 
+Deployment steps can be found [here](https://github.com/paulio11/project-5-backend/blob/main/DEPLOYMENT.md).
+
+[Back to top 🔺](#pokébox-backend--api)
+
 ## Technologies
 
+### Main Languages Used
+
+- [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>)
+
+### Frameworks
+
+- [Django](https://www.djangoproject.com/) - A high-level Python web framework.
+- [Django Rest Framework](https://www.django-rest-framework.org/) - A powerful and flexible toolkit for building Web APIs.
+
+### Libraries
+
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - Enables the use of database URLs in Django.
+- [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - A Django package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files.
+- [django-resized](https://pypi.org/project/django-resized/) - Used to resize images uploaded by the user.
+- [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX.
+- [Pillow](https://pypi.org/project/Pillow/) - A Python Imaging Library that adds image processing capabilities to the Python interpreter.
+- [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
+- [Coverage](https://pypi.org/project/coverage/) - To check full for automated test coverage.
+- [model-bakery](https://pypi.org/project/model-bakery/) - To create database objects for testing.
+- [dj-rest-auth](https://dj-rest-auth.readthedocs.io/en/latest/) - Provides a set of API endpoints that handle user registration and authentication.
+- [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - An integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
+- [django-cors-headers](https://pypi.org/project/django-cors-headers/) - Adds Cross-Origin Resource Sharing (CORS) headers to responses. This allows in-browser requests to the Django application from other origins.
+- [django-filter](https://django-filter.readthedocs.io/en/stable/) - Allows users to filter down a queryset based on a model’s fields, displayed as a form.
+- [djangorestframework-simplejwt](https://pypi.org/project/djangorestframework-simplejwt/) - A JSON Web Token authentication plugin for the Django REST Framework.
+
+### Other
+
+- [ElephantSQL](https://www.elephantsql.com/) - Hosting of the PostgreSQL database used by squigl.
+- [GitHub](https://github.com/) - Repository hosting, commit history and project management with user stories.
+- [Heroku](https://heroku.com/) - Pokêbox back-end API is deployed to Heroku.
+- [Cloudinary](https://cloudinary.com/) - Hosting of images and other static files.
+- [CI Python Linter](https://pep8ci.herokuapp.com/) - Used to validate my Python code.
+
+[Back to top 🔺](#pokébox-backend--api)
+
 ## Credits
+
+### Code
+
+This project was loosely based on Moments by [Code Institute](https://codeinstitute.net/), a project designed to teach Django Rest Framework and React. There are some code similarities, in particular:
+
+- asd
+
+[Back to top 🔺](#pokébox-backend--api)
