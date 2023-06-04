@@ -15,7 +15,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     created = serializers.SerializerMethodField()
 
     def get_created(self, obj):
-        return obj.created.strftime("%dth %B %Y")
+        return obj.created.strftime("%b %d %Y")
 
     class Meta:
         model = Profile

@@ -15,7 +15,7 @@ class CommentSerializer(serializers.ModelSerializer):
     created = serializers.SerializerMethodField()
 
     def get_created(self, obj):
-        return obj.created.strftime("%dth %B %Y, %H:%M")
+        return obj.created.strftime("%b %d %Y, %H:%M")
 
     class Meta:
         model = Comment
