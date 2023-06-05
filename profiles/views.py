@@ -21,7 +21,7 @@ class ProfileList(generics.ListAPIView):
         )
     ).order_by("-created")
     filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
-    ordering_fields = ["owner", "col_size", "created"]
+    ordering_fields = ["owner__username", "col_size", "created"]
     filterset_fields = ["owner__username"]
 
 
