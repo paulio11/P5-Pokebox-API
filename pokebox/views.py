@@ -10,7 +10,7 @@ from .settings import (
 
 @api_view()
 def root_route(request):
-    return Response({"message": "Pikachuuuuu!"})
+    return Response({"message": "This is the backend API for Pokébox!"})
 
 
 @api_view(["POST"])

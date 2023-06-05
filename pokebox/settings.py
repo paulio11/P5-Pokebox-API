@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import sys
 
 if os.path.exists("env.py"):
     import env
@@ -208,3 +209,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://project-5-pokebox.herokuapp.com",
 ]
+
+
+# Testing Database
+
+if "test" in sys.argv or "test_coverage" in sys.argv:
+    DATABASES["default"]["ENGINE"] = "django.db.backends.sqlite3"
