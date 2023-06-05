@@ -13,10 +13,20 @@ class ProfileSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
     pokemon = serializers.ListField(required=False, allow_empty=True)
     created = serializers.SerializerMethodField()
+    col_size = serializers.ReadOnlyField()
 
     def get_created(self, obj):
         return obj.created.strftime("%b %d %Y")
 
     class Meta:
         model = Profile
-        fields = ["id", "owner", "created", "avatar", "about", "favorite", "pokemon"]
+        fields = [
+            "id",
+            "owner",
+            "created",
+            "avatar",
+            "about",
+            "favorite",
+            "col_size",
+            "pokemon",
+        ]
