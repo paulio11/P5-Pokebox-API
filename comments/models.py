@@ -17,5 +17,5 @@ class Comment(models.Model):
     class Meta:
         ordering = ["-created"]
 
-        def __str__(self):
-            return f"Comment: {self.id}, for post: {self.post}"
+    def __str__(self):
+        return f"Comment: {self.id}, for post: {self.post.id}"
