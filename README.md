@@ -258,20 +258,18 @@ Deployment steps can be found [here](https://github.com/paulio11/project-5-backe
 
 ### Libraries
 
-- [dj-database-url](https://pypi.org/project/dj-database-url/) - Enables the use of database URLs in Django.
-- [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - A Django package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files.
-- [django-resized](https://pypi.org/project/django-resized/) - Used to resize images uploaded by the user.
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - Enables the use of database URLs in Django. ElephantSQL provides an easy to use database URL which makes using this library essential.
+- [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - A Django package that provides Cloudinary storage for both media and static files as well as management commands for removing unnecessary files. Images added to posts, user avatars and default avatars along with other static files are stored in Cloudinary.
+- [django-resized](https://pypi.org/project/django-resized/) - Used to resize images uploaded by the user. This keeps the file size managable, and crops avatars to a square so they display correctly on my front-end.
 - [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX.
 - [Pillow](https://pypi.org/project/Pillow/) - A Python Imaging Library that adds image processing capabilities to the Python interpreter.
-- [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
+- [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language. Using a Postgres database was essential for this project as my profile model contains an ArrayField which is incompatible with the default sqlite database used by django.
 - [Coverage](https://pypi.org/project/coverage/) - To check full for automated test coverage.
-- [model-bakery](https://pypi.org/project/model-bakery/) - To create database objects for testing.
 - [dj-rest-auth](https://dj-rest-auth.readthedocs.io/en/latest/) - Provides a set of API endpoints that handle user registration and authentication.
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - An integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
 - [django-cors-headers](https://pypi.org/project/django-cors-headers/) - Adds Cross-Origin Resource Sharing (CORS) headers to responses. This allows in-browser requests to the Django application from other origins.
 - [django-filter](https://django-filter.readthedocs.io/en/stable/) - Allows users to filter down a queryset based on a model’s fields, displayed as a form.
 - [djangorestframework-simplejwt](https://pypi.org/project/djangorestframework-simplejwt/) - A JSON Web Token authentication plugin for the Django REST Framework.
-- [Coverage](https://pypi.org/project/coverage/) - To check full for automated test coverage.
 
 ### Other
 
