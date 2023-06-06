@@ -211,7 +211,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-# Testing Database
+# Database Engine for Tests
 
 if "test" in sys.argv or "test_coverage" in sys.argv:
     DATABASES["default"]["ENGINE"] = "django.db.backends.sqlite3"

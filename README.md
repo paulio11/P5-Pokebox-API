@@ -23,6 +23,8 @@
 
 ## Introduction
 
+This is the back-end API for [Pokébox](https://project-5-pokebox.herokuapp.com/). Created using Django and the Rest Framework. Visit my [front-end repo](https://github.com/paulio11/project-5) for more information.
+
 [Back to top 🔺](#pokébox-backend--api)
 
 ## Project Planning
@@ -210,7 +212,7 @@ The following are the non-default variables defined in [settings.py](https://git
 ### Allauth / dj-rest-auth
 
 - `SITE_ID`: Identifies the Django site.
-- `OLD_PASSWORD_FIELD_ENABLED`: Enables the use of the old password field.
+- `OLD_PASSWORD_FIELD_ENABLED`: Enables the use of the old password field when attempting to change password.
 
 ### Rest Framework
 
@@ -269,6 +271,7 @@ Deployment steps can be found [here](https://github.com/paulio11/project-5-backe
 - [django-cors-headers](https://pypi.org/project/django-cors-headers/) - Adds Cross-Origin Resource Sharing (CORS) headers to responses. This allows in-browser requests to the Django application from other origins.
 - [django-filter](https://django-filter.readthedocs.io/en/stable/) - Allows users to filter down a queryset based on a model’s fields, displayed as a form.
 - [djangorestframework-simplejwt](https://pypi.org/project/djangorestframework-simplejwt/) - A JSON Web Token authentication plugin for the Django REST Framework.
+- [Coverage](https://pypi.org/project/coverage/) - To check full for automated test coverage.
 
 ### Other
 
@@ -286,6 +289,8 @@ Deployment steps can be found [here](https://github.com/paulio11/project-5-backe
 
 This project was loosely based on Moments by [Code Institute](https://codeinstitute.net/), a project designed to teach Django Rest Framework and React. There are some code similarities, in particular:
 
-- asd
+- [Logout Route View](https://github.com/paulio11/project-5-backend/blob/main/pokebox/views.py#L16) - This code acts a fix for the DJ Rest Auth logout view present in the version being used.
+- [Get Like ID Function](https://github.com/paulio11/project-5-backend/blob/main/posts/serializers.py) - This returns the like object ID for the requested post if a user has liked it.
+- [IsOwnerOrReadOnly Permission Class](https://github.com/paulio11/project-5-backend/blob/main/pokebox/permissions.py) - This grants full object access to owners, or read only access to others.
 
 [Back to top 🔺](#pokébox-backend--api)
