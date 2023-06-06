@@ -5,7 +5,6 @@
 1. [Validation](#validation)
 2. [Automated Testing](#automated-testing)
 3. [Manual Testing](#manual-testing)
-4. [User Stories](#user-stories)
 
 ## Validation
 
@@ -187,5 +186,3 @@ In addition to automated testing I carried out the following manual tests for as
 | Test                                                          | Result | Link To Result                                            |
 | ------------------------------------------------------------- | ------ | --------------------------------------------------------- |
 | Comments are sorted by their creation date in desending order | ✓      | [Link](https://project-5-backend.herokuapp.com/comments/) |
-
-## User Stories
