@@ -12,37 +12,37 @@
 
 All python files with code written by myself were run through the CI Python Linter. These are the results:
 
-| File                        | Result | Notes                      | Screenshot                                                                                                                            |
-| --------------------------- | ------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| [comments/admin.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-comments-admin.png)       |
-| [comments/models.py]()      | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-comments-models.png)      |
-| [comments/serializers.py]() | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-comments-serializers.png) |
-| [comments/tests.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-comments-tests.png)       |
-| [comments/urls.py]()        | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-comments-urls.png)        |
-| [comments/views.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-comments-views.png)       |
-| [likes/admin.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-likes-admin.png)          |
-| [likes/models.py]()         | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-likes-models.png)         |
-| [likes/serializers.py]()    | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-likes-serializers.png)    |
-| [likes/tests.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-likes-tests.png)          |
-| [likes/urls.py]()           | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-likes-urls.png)           |
-| [likes/views.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-likes-views.png)          |
-| [pokebox/permissions.py]()  | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-pokebox-permissions.png)  |
-| [pokebox/serializers.py]()  | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-pokebox-serializers.png)  |
-| [pokebox/tests.py]()        | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-pokebox-tests.png)        |
-| [pokebox/urls.py]()         | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-pokebox-urls.png)         |
-| [pokebox/views.py]()        | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-pokebox-views.png)        |
-| [posts/admin.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-posts-admin.png)          |
-| [posts/models.py]()         | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-posts-models.png)         |
-| [posts/serializers.py]()    | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-posts-serializers.png)    |
-| [posts/tests.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-posts-tests.png)          |
-| [posts/urls.py]()           | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-posts-urls.png)           |
-| [posts/views.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-posts-views.png)          |
-| [profiles/admin.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-profiles-admin.png)       |
-| [profiles/models.py]()      | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-profiles-models.png)      |
-| [profiles/serializers.py]() | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-profiles-serializers.png) |
-| [profiles/tests.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-profiles-tests.png)       |
-| [profiles/urls.py]()        | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-profiles-urls.png)        |
-| [profiles/views.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-profiles-views.png)       |
+| File                        | Result | Notes                      | Screenshot                                                                                                                         |
+| --------------------------- | ------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [comments/admin.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-comments-admin.png)       |
+| [comments/models.py]()      | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-comments-models.png)      |
+| [comments/serializers.py]() | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-comments-serializers.png) |
+| [comments/tests.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-comments-tests.png)       |
+| [comments/urls.py]()        | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-comments-urls.png)        |
+| [comments/views.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-comments-views.png)       |
+| [likes/admin.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-likes-admin.png)          |
+| [likes/models.py]()         | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-likes-models.png)         |
+| [likes/serializers.py]()    | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-likes-serializers.png)    |
+| [likes/tests.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-likes-tests.png)          |
+| [likes/urls.py]()           | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-likes-urls.png)           |
+| [likes/views.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-likes-views.png)          |
+| [pokebox/permissions.py]()  | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-pokebox-permissions.png)  |
+| [pokebox/serializers.py]()  | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-pokebox-serializers.png)  |
+| [pokebox/tests.py]()        | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-pokebox-tests.png)        |
+| [pokebox/urls.py]()         | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-pokebox-urls.png)         |
+| [pokebox/views.py]()        | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-pokebox-views.png)        |
+| [posts/admin.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-posts-admin.png)          |
+| [posts/models.py]()         | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-posts-models.png)         |
+| [posts/serializers.py]()    | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-posts-serializers.png)    |
+| [posts/tests.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-posts-tests.png)          |
+| [posts/urls.py]()           | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-posts-urls.png)           |
+| [posts/views.py]()          | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-posts-views.png)          |
+| [profiles/admin.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-profiles-admin.png)       |
+| [profiles/models.py]()      | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-profiles-models.png)      |
+| [profiles/serializers.py]() | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-profiles-serializers.png) |
+| [profiles/tests.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-profiles-tests.png)       |
+| [profiles/urls.py]()        | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-profiles-urls.png)        |
+| [profiles/views.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-profiles-views.png)       |
 
 ## Automated Testing
 
@@ -52,15 +52,15 @@ Note - due to my profile model having an ArrayField which is incompatible with t
 
 ### Terminal Test Output
 
-![Terminal test output](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-terminaltestresults.png)
+![Terminal test output](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-terminaltestresults.png)
 
 ### Coverage Report
 
-![Coverage report](https://raw.githubusercontent.com/paulio11/project-5-backend/main/documentation/images/testing-coveragereport.png)
+![Coverage report](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-coveragereport.png)
 
 **The following tests were carried out:**
 
-### [comments.tests.py](https://github.com/paulio11/project-5-backend/blob/main/comments/tests.py)
+### [comments.tests.py](https://github.com/paulio11/P5-Pokebox-API/blob/main/comments/tests.py)
 
 | Name                                        | Testing For                                                      | Result |
 | ------------------------------------------- | ---------------------------------------------------------------- | ------ |
@@ -81,7 +81,7 @@ Note - due to my profile model having an ArrayField which is incompatible with t
 | **CommentModelTests**                       |
 | test_str_method                             | A created comment is represented by the correct string           | ✓      |
 
-### [likes.tests.py](https://github.com/paulio11/project-5-backend/blob/main/likes/tests.py)
+### [likes.tests.py](https://github.com/paulio11/P5-Pokebox-API/blob/main/likes/tests.py)
 
 | Name                                     | Testing For                                               | Result |
 | ---------------------------------------- | --------------------------------------------------------- | ------ |
@@ -100,7 +100,7 @@ Note - due to my profile model having an ArrayField which is incompatible with t
 | **LikeSerializerTests**                  |
 | test_create_duplicate_like               | User can't create duplicate likes, returns a 400 response | ✓      |
 
-### [pokebox.tests.py](https://github.com/paulio11/project-5-backend/blob/main/pokebox/tests.py)
+### [pokebox.tests.py](https://github.com/paulio11/P5-Pokebox-API/blob/main/pokebox/tests.py)
 
 | Name                 | Testing For                                                   | Result |
 | -------------------- | ------------------------------------------------------------- | ------ |
@@ -109,7 +109,7 @@ Note - due to my profile model having an ArrayField which is incompatible with t
 | **LogoutRouteTests** |
 | test_logout_route    | Correct response and cookies and their attributes are cleared | ✓      |
 
-### [posts.tests.py](https://github.com/paulio11/project-5-backend/blob/main/posts/tests.py)
+### [posts.tests.py](https://github.com/paulio11/P5-Pokebox-API/blob/main/posts/tests.py)
 
 | Name                                            | Testing For                                                                       | Result |
 | ----------------------------------------------- | --------------------------------------------------------------------------------- | ------ |
@@ -139,7 +139,7 @@ Note - due to my profile model having an ArrayField which is incompatible with t
 | test_get_like_id                                | Serializer displays like ID for logged in user if they have liked the post        | ✓      |
 | test_get_like_id_when_none                      | Serializer displays no like ID for logged in user if they have not liked the post | ✓      |
 
-### [profiles.tests.py](https://github.com/paulio11/project-5-backend/blob/main/profiles/tests.py)
+### [profiles.tests.py](https://github.com/paulio11/P5-Pokebox-API/blob/main/profiles/tests.py)
 
 | Name                                        | Testing For                                            | Result |
 | ------------------------------------------- | ------------------------------------------------------ | ------ |
