@@ -45,10 +45,3 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CommentDetailSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Comment.objects.all()
-
-    def perform_create(self, serializer):
-        """
-        Sets the owner of a new Comment to the authenticated user making the
-        request.
-        """
-        serializer.save(owner=self.request.user)
