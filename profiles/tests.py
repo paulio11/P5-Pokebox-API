@@ -8,7 +8,7 @@ from django.test import TestCase
 # VIEW TESTS
 
 
-class ProfileListView(APITestCase):
+class ProfileListTests(APITestCase):
     def setUp(self):
         User.objects.create_user(username="red", password="pass")
         User.objects.create_user(username="blue", password="pass")
