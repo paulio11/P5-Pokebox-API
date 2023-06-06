@@ -1,6 +1,6 @@
 # Pokébox Backend / API
 
-[Link to live API](https://P5-Pokebox-API.herokuapp.com/)
+[Link to live API](https://project-5-backend.herokuapp.com/)
 
 [Link to live Pokébox front-end](https://project-5-pokebox.herokuapp.com/)
 
