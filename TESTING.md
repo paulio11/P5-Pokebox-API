@@ -157,4 +157,35 @@ Note - due to my profile model having an ArrayField which is incompatible with t
 
 ## Manual Testing
 
+In addition to automated testing I carried out the following manual tests for aspects not covered:
+
+### Profiles
+
+| Test                                                                                | Result | Link To Result                                                                      |
+| ----------------------------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------- |
+| Profiles can be ordered by the owner's username in ascending order                  | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=owner__username)  |
+| Profiles can be ordered by the owner's username in descending order                 | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=-owner__username) |
+| Profiles can be ordered by their creation date in ascending order                   | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=created)          |
+| Profiles can be ordered by theor creation date in descending order                  | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=-created)         |
+| Profiles can be ordered by the size of their Pokémon collection in ascending order  | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=col_size)         |
+| Profiles can be ordered by the size of their Pokémon collection in descending order | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=-col_size)        |
+| Profiles can be filtered by the owner's username - Example: **"ash"**               | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?owner__username=ash)       |
+
+### Posts
+
+| Test                                                            | Result | Link To Result                                                                 |
+| --------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------ |
+| Posts can be ordered by their like count in ascending order     | ✓      | [Link](https://project-5-backend.herokuapp.com/posts/?ordering=like_count)     |
+| Posts can be ordered by their like count in descending order    | ✓      | [Link](https://project-5-backend.herokuapp.com/posts/?ordering=-like_count)    |
+| Posts can be ordered by their comment count in ascending order  | ✓      | [Link](https://project-5-backend.herokuapp.com/posts/?ordering=comment_count)  |
+| Posts can be ordered by their comment count in descending order | ✓      | [Link](https://project-5-backend.herokuapp.com/posts/?ordering=-comment_count) |
+| Posts can be ordered by their creation date in ascending order  | ✓      | [Link](https://project-5-backend.herokuapp.com/posts/?ordering=created)        |
+| Posts can be ordered by their creation date in descending order | ✓      | [Link](https://project-5-backend.herokuapp.com/posts/?ordering=-created)       |
+
+### Comments
+
+| Test                                                          | Result | Link To Result                                            |
+| ------------------------------------------------------------- | ------ | --------------------------------------------------------- |
+| Comments are sorted by their creation date in desending order | ✓      | [Link](https://project-5-backend.herokuapp.com/comments/) |
+
 ## User Stories
