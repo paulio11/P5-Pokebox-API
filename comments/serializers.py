@@ -4,17 +4,18 @@ from .models import Comment
 
 class CommentSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Comment model, providing a read-only 'owner' field
-    sourced from the username, and a custom string representation for the
-    'created' field.
+    Serializes Comment model instances to JSON format.
     """
-
     owner = serializers.ReadOnlyField(source="owner.username")
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
-    profile_avatar = serializers.ReadOnlyField(source="owner.profile.avatar.url")
+    profile_avatar = serializers.ReadOnlyField(
+        source="owner.profile.avatar.url")
     created = serializers.SerializerMethodField()
 
     def get_created(self, obj):
+        """
+        Returns the formatted creation date of the comment.
+        """
         return obj.created.strftime("%b %d %Y, %H:%M")
 
     class Meta:
@@ -32,8 +33,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class CommentDetailSerializer(CommentSerializer):
     """
-    Serializer for a detailed view of a Comment, extending CommentSerializer
-    and adding a read-only 'post' field sourced from the post's ID.
+    Serializer for detailed Comment objects.
+    Extends CommentSerializer to include additional details.
     """
-
     post = serializers.ReadOnlyField(source="post.id")

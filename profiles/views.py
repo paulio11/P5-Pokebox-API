@@ -9,6 +9,11 @@ from django.db.models import F, Func, ExpressionWrapper, IntegerField
 
 
 class ProfileList(generics.ListAPIView):
+    """
+    API view for listing profiles.
+    Can be ordered by owner, col_size, and created.
+    Can be filtered by owner.
+    """
     serializer_class = ProfileSerializer
     queryset = Profile.objects.annotate(
         col_size=ExpressionWrapper(
@@ -26,6 +31,10 @@ class ProfileList(generics.ListAPIView):
 
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
+    """
+    API view for a single detailed profile
+    Provides full permission to owners of the profile.
+    """
     queryset = Profile.objects.annotate(
         col_size=ExpressionWrapper(
             Func(

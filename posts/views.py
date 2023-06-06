@@ -10,11 +10,17 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 class PostFilter(rest_framework.FilterSet):
+    """
+    Provides filtering options for post instances
+    """
     has_image = rest_framework.BooleanFilter(
         field_name="image", method="filter_has_image"
     )
 
     def filter_has_image(self, queryset, name, value):
+        """
+        Filter method for filtering posts based on the presence of an image.
+        """
         if value:
             return queryset.exclude(image="")
         return queryset
@@ -28,6 +34,9 @@ class PostFilter(rest_framework.FilterSet):
 
 
 class PostList(generics.ListCreateAPIView):
+    """
+    API view for listing and creating posts
+    """
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(
@@ -43,6 +52,10 @@ class PostList(generics.ListCreateAPIView):
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    API view for showing a specific post and providing
+    full permissions to the post owner
+    """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = PostSerializer
     queryset = Post.objects.annotate(

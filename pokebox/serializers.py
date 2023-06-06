@@ -5,8 +5,8 @@ from rest_framework import serializers
 class CurrentUserSerializer(UserDetailsSerializer):
     """
     Serializer for the current authenticated User, extending
-    UserDetailsSerializer from dj_rest_auth. Includes additional fields from
-    the user's profile (id, avatar, favorite pokemon).
+    UserDetailsSerializer from dj_rest_auth. Includes id field from
+    the user's profile.
     """
 
     profile_id = serializers.ReadOnlyField(source="profile.id")

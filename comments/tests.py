@@ -13,7 +13,8 @@ from posts.models import Post
 
 class CommentListTests(APITestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username="testuser", password="pass")
+        self.user = User.objects.create_user(
+            username="testuser", password="pass")
         self.post1 = Post.objects.create(owner=self.user, body="test post 1")
         post2 = Post.objects.create(owner=self.user, body="test post 2")
         comment = Comment.objects.create(
@@ -60,7 +61,8 @@ class CommentDetailTests(APITestCase):
     def setUp(self):
         user = User.objects.create_user(username="testuser", password="pass")
         post = Post.objects.create(owner=user, body="test post")
-        comment = Comment.objects.create(owner=user, post=post, body="test comment")
+        comment = Comment.objects.create(
+            owner=user, post=post, body="test comment")
         user2 = User.objects.create_user(username="testuser2", password="pass")
         comment2 = Comment.objects.create(
             owner=user2, post=post, body="someone else's comment"
@@ -117,9 +119,11 @@ class CommentDetailTests(APITestCase):
 
 class CommentModelTests(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username="testuser", password="pass")
+        self.user = User.objects.create_user(
+            username="testuser", password="pass")
         self.post = Post.objects.create(owner=self.user, body="test post")
-        Comment.objects.create(owner=self.user, body="test comment", post=self.post)
+        Comment.objects.create(
+            owner=self.user, body="test comment", post=self.post)
 
     def test_str_method(self):
         comment = Comment.objects.filter(owner=self.user).first()

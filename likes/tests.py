@@ -75,7 +75,8 @@ class LikeDetailTests(APITestCase):
 class LikeModelTests(TestCase):
     def setUp(self):
         user = User.objects.create_user(username="testuser", password="pass")
-        self.user2 = User.objects.create_user(username="testuser2", password="pass")
+        self.user2 = User.objects.create_user(
+            username="testuser2", password="pass")
         self.post = Post.objects.create(owner=user, body="test post")
         Like.objects.create(owner=self.user2, post=self.post)
 
@@ -100,5 +101,6 @@ class LikeSerializerTests(TestCase):
         response = self.client.post("/likes/", {"post": self.post.id})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(
-            response.data["detail"], "Duplicate like. You have already liked this post."
+            response.data["detail"],
+            "Duplicate like. You have already liked this post."
         )

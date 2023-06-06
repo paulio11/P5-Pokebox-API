@@ -93,7 +93,8 @@ class PostFilterTests(TestCase):
         self.post1 = Post.objects.create(
             owner=user, body="test post with image", image="test.jpg"
         )
-        self.post2 = Post.objects.create(owner=user2, body="test post user 1 liked")
+        self.post2 = Post.objects.create(
+            owner=user2, body="test post user 1 liked")
         Like.objects.create(owner=user, post=self.post2)
 
     def test_filter_off(self):
@@ -125,7 +126,8 @@ class PostFilterTests(TestCase):
     def test_filter_returned_queryset_if_value_is_true(self):
         queryset = Post.objects.all()
         filter = PostFilter()
-        filtered_queryset = filter.filter_has_image(queryset, "has_image", True)
+        filtered_queryset = filter.filter_has_image(
+            queryset, "has_image", True)
         self.assertEqual(len(filtered_queryset), 1)
         self.assertTrue(self.post1 in filtered_queryset)
         self.assertFalse(self.post2 in filtered_queryset)
@@ -133,7 +135,8 @@ class PostFilterTests(TestCase):
     def test_filter_returned_queryset_if_value_is_false(self):
         queryset = Post.objects.all()
         filter = PostFilter()
-        filtered_queryset = filter.filter_has_image(queryset, "has_image", False)
+        filtered_queryset = filter.filter_has_image(
+            queryset, "has_image", False)
         self.assertEqual(len(filtered_queryset), 2)
         self.assertTrue(self.post1 in filtered_queryset)
         self.assertTrue(self.post2 in filtered_queryset)
@@ -144,7 +147,8 @@ class PostFilterTests(TestCase):
 
 class PostModelTests(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username="testuser", password="pass")
+        self.user = User.objects.create_user(
+            username="testuser", password="pass")
         Post.objects.create(owner=self.user, body="test post")
 
     def test_str_method(self):

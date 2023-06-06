@@ -26,7 +26,8 @@ class LogoutRouteTest(APITestCase):
 
         # Assert cookies are cleared
         self.assertEqual(response.cookies["p5-pokebox-auth"].value, "")
-        self.assertEqual(response.cookies["p5-pokebox-refresh-token"].value, "")
+        self.assertEqual(
+            response.cookies["p5-pokebox-refresh-token"].value, "")
 
         # Assert cookie attributes
         self.assertTrue(response.cookies["p5-pokebox-auth"]["httponly"])
@@ -35,15 +36,18 @@ class LogoutRouteTest(APITestCase):
             "Thu 01 Jan 1970 00:00:00 GMT",
         )
         self.assertEqual(response.cookies["p5-pokebox-auth"]["max-age"], 0)
-        self.assertEqual(response.cookies["p5-pokebox-auth"]["samesite"], "None")
+        self.assertEqual(
+            response.cookies["p5-pokebox-auth"]["samesite"], "None")
         self.assertTrue(response.cookies["p5-pokebox-auth"]["secure"])
 
-        self.assertTrue(response.cookies["p5-pokebox-refresh-token"]["httponly"])
+        self.assertTrue(
+            response.cookies["p5-pokebox-refresh-token"]["httponly"])
         self.assertEqual(
             response.cookies["p5-pokebox-refresh-token"]["expires"],
             "Thu 01 Jan 1970 00:00:00 GMT",
         )
-        self.assertEqual(response.cookies["p5-pokebox-refresh-token"]["max-age"], 0)
+        self.assertEqual(
+            response.cookies["p5-pokebox-refresh-token"]["max-age"], 0)
         self.assertEqual(
             response.cookies["p5-pokebox-refresh-token"]["samesite"], "None"
         )

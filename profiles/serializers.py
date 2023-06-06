@@ -8,6 +8,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     A read-only 'owner' field sourced from the username.
     A list field for 'pokemon'.
     A custom string representation for the 'created' field.
+    col_size, which will be the lenght of the pokemon collection
     """
 
     owner = serializers.ReadOnlyField(source="owner.username")

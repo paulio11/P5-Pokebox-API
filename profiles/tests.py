@@ -56,7 +56,8 @@ class ProfileDetailTests(APITestCase):
 
 class ProfileModelTests(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username="testuser", password="pass")
+        self.user = User.objects.create_user(
+            username="testuser", password="pass")
 
     def test_str_method(self):
         profile = Profile.objects.filter(owner=self.user).first()

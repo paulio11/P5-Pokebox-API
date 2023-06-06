@@ -16,7 +16,7 @@ class Profile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     about = models.TextField(
         max_length=400,
-        default="Hello! I am a new trainer just starting my Pokémon adventure.",
+        default="Hello! I am a new trainer just starting my adventure.",
         blank=True,
     )
     favorite = models.CharField(max_length=30, blank=True)
