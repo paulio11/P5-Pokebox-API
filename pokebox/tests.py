@@ -1,6 +1,9 @@
 from rest_framework.test import APITestCase
 
 
+# VIEW TESTS
+
+
 class RootRouteTest(APITestCase):
     def test_root_route(self):
         response = self.client.get("/")
