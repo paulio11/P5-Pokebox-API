@@ -130,6 +130,7 @@ The profile serializer provides the following to the API view:
 - **Owner** - This field uses the owner's username taken from the user model.
 - **Created** - Provided by the function `get_created()` which returns a formatted date string.
 - **Pokemon** - Defines this field as a list that can be empty.
+- **col_size** - Collection Size, defined as a read only field.
 
 ### [CurrentUser Serializer](https://github.com/paulio11/project-5-backend/blob/main/pokebox/serializers.py)
 
