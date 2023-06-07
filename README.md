@@ -97,7 +97,7 @@ The profile object is automatically created for each new user using a `post_save
 
 ## Serializers
 
-The django Rest Framework serializer component is used as an intermediary between the database models and the API views (see below). They provide fields in addition to those from the parent model, a method for creation, and can define which should be read only. Each model has it's own serializer:
+The django Rest Framework serializer component is used as an intermediary between the database models and the API views (see below). They provide fields in addition to those from the parent model, can define which should be read only and a method for creation. Each model has it's own serializer:
 
 ### [Post Serializer](https://github.com/paulio11/P5-Pokebox-API/blob/main/posts/serializers.py)
 
