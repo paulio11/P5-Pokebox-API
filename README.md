@@ -273,7 +273,7 @@ Deployment steps can be found [here](https://github.com/paulio11/P5-Pokebox-API/
 
 - [ElephantSQL](https://www.elephantsql.com/) - Hosting of the PostgreSQL database used by squigl.
 - [GitHub](https://github.com/) - Repository hosting, commit history and project management with user stories.
-- [Heroku](https://heroku.com/) - Pokêbox back-end API is deployed to Heroku.
+- [Heroku](https://heroku.com/) - Pokébox back-end API is deployed to Heroku.
 - [Cloudinary](https://cloudinary.com/) - Hosting of images and other static files.
 - [CI Python Linter](https://pep8ci.herokuapp.com/) - Used to validate my Python code.
 
@@ -283,10 +283,9 @@ Deployment steps can be found [here](https://github.com/paulio11/P5-Pokebox-API/
 
 ### Code
 
-This project was loosely based on Moments by [Code Institute](https://codeinstitute.net/), a project designed to teach Django Rest Framework and React. There are some code similarities, in particular:
-
-- [Logout Route View](https://github.com/paulio11/P5-Pokebox-API/blob/main/pokebox/views.py#L16) - This code acts as a fix for the DJ Rest Auth logout view present in the version being used.
-- [Get Like ID Function](https://github.com/paulio11/P5-Pokebox-API/blob/main/posts/serializers.py) - This returns the like object ID for the requested post if a user has liked it.
-- [IsOwnerOrReadOnly Permission Class](https://github.com/paulio11/P5-Pokebox-API/blob/main/pokebox/permissions.py) - This gives full object access to owners, or read only access to others.
+- This project was loosely based on Moments by [Code Institute](https://codeinstitute.net/), a project designed to teach Django Rest Framework and React. There are some code similarities, in particular:
+  - [Logout Route View](https://github.com/paulio11/P5-Pokebox-API/blob/main/pokebox/views.py#L16) - This code acts as a fix for the DJ Rest Auth logout view present in the version being used.
+  - [Get Like ID Function](https://github.com/paulio11/P5-Pokebox-API/blob/main/posts/serializers.py) - This returns the like object ID for the requested post if a user has liked it.
+- The `IsOwnerOrReadOnly` permission class used for detail views is an example of a custom permission from the Rest Framework documentation. It can be found [here](https://www.django-rest-framework.org/api-guide/permissions/#examples).
 
 [Back to top 🔺](#pokébox-backend--api)

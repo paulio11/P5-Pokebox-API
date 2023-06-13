@@ -63,7 +63,7 @@ os.environ["CLOUDINARY_URL"] = "YOUR CLOUDINARY URL FROM EARLIER (without the CL
 
 ## Heroku
 
-Squigl is currently deployed to Heroku. Follow these steps if you want to deploy your copy.
+Pokébox API is currently deployed to Heroku. Follow these steps if you want to deploy your copy.
 
 1. [Login](https://id.heroku.com/login) or [sign up]() to Heroku.
 2. Once on your [Dashboard](https://dashboard.heroku.com/apps), click the **New** and **Create New App** buttons.

@@ -44,11 +44,13 @@ All python files with code written by myself were run through the CI Python Lint
 | [profiles/urls.py]()        | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-profiles-urls.png)        |
 | [profiles/views.py]()       | ✓      | All clear, no errors found | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-profiles-views.png)       |
 
+[Back to top 🔺](#testing)
+
 ## Automated Testing
 
 My goal for automated testing was to reach 100% coverage using the Python library [Coverage](https://pypi.org/project/coverage/). 100% coverage was achieved excluding `manage.py` and `settings.py` as this is built in django code. I further developed each test to cover things usc has testing for login requirements and changes to the database. **See each test file for the full list of things tested for**.
 
-Note - due to my profile model having an ArrayField which is incompatible with the default testing database engine (sqlite3), I had to temporarily remove all references to this field in order to make the tests run. The ArrayField was manually tested instead.
+**Note** - due to my profile model having an ArrayField which is incompatible with the default testing database engine (sqlite3), I had to temporarily remove all references to this field in order to make the tests run. The ArrayField was manually tested instead.
 
 ### Terminal Test Output
 
@@ -154,9 +156,11 @@ Note - due to my profile model having an ArrayField which is incompatible with t
 | **ProfileModelTests**                       |
 | test_str_method                             | A created profile is represented by the correct string | ✓      |
 
+[Back to top 🔺](#testing)
+
 ## Manual Testing
 
-In addition to automated testing I carried out the following manual tests for aspects not covered:
+In addition to automated testing I carried out the following manual tests for aspects not covered with automated testing:
 
 ### Profiles
 
@@ -186,3 +190,14 @@ In addition to automated testing I carried out the following manual tests for as
 | Test                                                          | Result | Link To Result                                            |
 | ------------------------------------------------------------- | ------ | --------------------------------------------------------- |
 | Comments are sorted by their creation date in desending order | ✓      | [Link](https://project-5-backend.herokuapp.com/comments/) |
+
+### Pokemon ArrayField in Profile Model
+
+This field was manually tested due to the issues mentioned [above](#automated-testing).
+
+| Test                                    | Result | Link To Screenshot                                                                                                    |
+| --------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
+| Only integers can be added to the array | ✓      | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-array-1.png) |
+| Array can be empty                      | ✓      | [Screenshot](https://raw.githubusercontent.com/paulio11/P5-Pokebox-API/main/documentation/images/testing-array-2.png) |
+
+[Back to top 🔺](#testing)
