@@ -20,7 +20,8 @@ class Profile(models.Model):
         blank=True,
     )
     favorite = models.CharField(max_length=30, blank=True)
-    pokemon = ArrayField(models.IntegerField(), default=list)
+    pokemon = ArrayField(models.IntegerField(),
+                         default=list,  blank=True, null=True)
     avatar = ResizedImageField(
         upload_to="avatars/",
         size=[300, 300],

@@ -5,6 +5,7 @@ from pokebox.permissions import IsOwnerOrReadOnly
 from django.contrib.auth.models import User
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Count
+from django.db.models.functions import Coalesce
 from django.db.models import F, Func, ExpressionWrapper, IntegerField
 
 
@@ -17,14 +18,14 @@ class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.annotate(
         col_size=ExpressionWrapper(
-            Func(
-                F("pokemon"),
-                function="array_length",
-                template="%(function)s(%(expressions)s, 1)",
+            Coalesce(
+                Func(F("pokemon"), function="array_length",
+                     template="%(function)s(%(expressions)s, 1)"),
+                0
             ),
             output_field=IntegerField(),
         )
-    ).order_by("-created")
+    ).order_by("-col_size", "-created")
     filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
     ordering_fields = ["owner__username", "col_size", "created"]
     filterset_fields = ["owner__username"]
