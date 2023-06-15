@@ -26,9 +26,12 @@ class ProfileList(generics.ListAPIView):
             output_field=IntegerField(),
         )
     ).order_by("-col_size", "-created")
-    filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
+    filter_backends = [
+        filters.OrderingFilter, DjangoFilterBackend, filters.SearchFilter
+    ]
     ordering_fields = ["owner__username", "col_size", "created"]
     filterset_fields = ["owner__username"]
+    search_fields = ['owner__username']
 
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):

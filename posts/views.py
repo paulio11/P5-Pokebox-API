@@ -43,9 +43,12 @@ class PostList(generics.ListCreateAPIView):
         like_count=Count("likes", distinct=True),
         comment_count=Count("comments", distinct=True),
     ).order_by("-created")
-    filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
+    filter_backends = [
+        filters.OrderingFilter, DjangoFilterBackend, filters.SearchFilter
+    ]
     ordering_fields = ["like_count", "comment_count", "created"]
     filterset_class = PostFilter
+    search_fields = ["owner__username", "body"]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
