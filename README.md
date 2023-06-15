@@ -151,7 +151,10 @@ Each view provides a response to the front-end based on the request. They are re
 - **`PostList()` and `PostDetail()`**
   - Inherits from the `generics.ListCreateAPIView` class. It specifies the serializer class as `PostSerializer` and the permission classes as `permissions.IsAuthenticatedOrReadOnly`.
   - The `queryset` attribute is set to retrieve a list of Post objects from the database. The queryset is annotated with the counts of distinct likes and comments for each post and ordered by the creation date in descending order.
-  - Specifies two filter backends: `filters.OrderingFilter` and `DjangoFilterBackend`. The `ordering_fields` attribute defines the fields that can be used for ordering the posts, which include like_count, comment_count, and created. The `filterset_class` attribute is set to PostFilter (see below).
+  - Specifies three filter backends: `filters.SearchFilter`, `filters.OrderingFilter` and `DjangoFilterBackend`.
+  - The `ordering_fields` attribute defines the fields that can be used for ordering the posts, which include like_count, comment_count, and created.
+  - The `filterset_class` attribute is set to PostFilter (see below).
+  - The `search_fields` are set to `body` and `owner__username` so a user can search for a post by either the owner of the post or by words in the body text.
   - The `perform_create()` method is overridden to set the owner of a newly created post to the authenticated user making the request.
 - **`PostFilter()`**
   - Inherits from `rest_framework.FilterSet`. It is used to create filters for the Post model.
@@ -174,8 +177,10 @@ Each view provides a response to the front-end based on the request. They are re
 - **`ProfileList()` and `ProfileDetail()`**
   - Again defines the relevant serializer and permissions for the Profile model.
   - The `queryset` attribute is set to retrieve a list of Profile objects from the database. The queryset is annotated with an `ExpressionWrapper()` which uses a built in Postgresql function called `array_length` to count the length of the `pokemon` array field and return it as a new field.
-  - Specifies two filter backends: `filters.OrderingFilter` and `DjangoFilterBackend`. The `ordering_fields` attribute defines the fields that can be used for ordering the profile, which include `owner__username`, `col_size`, and `created`.
+  - Specifies three filter backends: `filters.SearchFilter`, `filters.OrderingFilter` and `DjangoFilterBackend`.
+  - The `ordering_fields` attribute defines the fields that can be used for ordering the profile, which include `owner__username`, `col_size`, and `created`.
   - The `filterset_fields` is set to `owner__username` so the a specific user's profile can easily be found.
+  - The `search_fields` is set to `owner__username` so a user can search for a trainer by their username.
 
 ### [Other](https://github.com/paulio11/P5-Pokebox-API/blob/main/pokebox/views.py)
 
