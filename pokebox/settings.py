@@ -31,7 +31,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "DEV" in os.environ
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "project-5-backend.herokuapp.com"]
+ALLOWED_HOSTS = [
+    os.environ.get('ALLOWED_HOST'),
+    'localhost',
+]
 
 
 # Application definition
@@ -206,8 +209,8 @@ JWT_AUTH_SAMESITE = "None"
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://project-5-pokebox.herokuapp.com",
+    os.environ.get('DEV_ORIGIN'),
+    os.environ.get('CLIENT_ORIGIN'),
 ]
 
 
