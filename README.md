@@ -16,10 +16,11 @@
 6. [Views](#views)
 7. [Permissions](#permissions)
 8. [Project Settings](#project-settings)
-9. [Testing](#testing)
-10. [Deployment](#deployment)
-11. [Technologies](#technologies)
-12. [Credits](#credits)
+9. [Bugs and Fixes](#bugs-and-fixes)
+10. [Testing](#testing)
+11. [Deployment](#deployment)
+12. [Technologies](#technologies)
+13. [Credits](#credits)
 
 ## Introduction
 
@@ -233,6 +234,12 @@ The following are the non-default variables defined in [settings.py](https://git
 
 - `CORS_ALLOW_CREDENTIALS`: Enables sending credentials (e.g., cookies) in cross-origin requests.
 - `CORS_ALLOWED_ORIGINS`: Lists the allowed origins for cross-origin requests.
+
+[Back to top 🔺](#pokébox-backend--api)
+
+## Bugs and Fixes
+
+There are no known bugs in the project at the time of project submission. I made it a priority to quickly address and resolve any issues that came up during development. To see the fixes I implemented, you can check my [commit history](https://github.com/paulio11/P5-Pokebox-API/commits/main) for commits labeled with the "Fix" prefix. The project is in a solid and dependable state for evaluation and the end-user.
 
 [Back to top 🔺](#pokébox-backend--api)
 
