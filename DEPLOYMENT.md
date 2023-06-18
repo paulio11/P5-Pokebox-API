@@ -50,9 +50,13 @@ If you want to edit any of the files I would suggest using Gitpod - a browser ba
 import os
 
 
-os.environ["DATABASE_URL"] = "YOUR ELEPHANTSQL URL FROM EARLIER"
-os.environ["SECRET_KEY"] = "A SECRET KEY"
-os.environ["CLOUDINARY_URL"] = "YOUR CLOUDINARY URL FROM EARLIER (without the CLOUDINARY_URL= at the start)"
+os.environ["DATABASE_URL"] = "Your Elephant SQL URL from earlier"
+os.environ["SECRET_KEY"] = "Any secret key"
+os.environ["CLOUDINARY_URL"] = "Your Cloudinary url from earlier (without the CLOUDINARY_URL= at the start)"
+os.environ["DEV"] = "1" // "1" if you want to enable debug, "0" if not.
+os.environ["DEV_ORIGIN"] = "http://localhost:3000" // if running the front-end server locally
+os.environ["ALLOWED_HOST"] = "Your deployed back-end Heroku app URL"
+os.environ["CLIENT_ORIGIN"] = "Your deployed front-end Heroku app URL"
 ```
 
 8. Before you commit any changes back to GitHub remember to create a **.gitignore** file by typing `touch .gitignore` into the terminal.
@@ -73,11 +77,13 @@ Pokébox API is currently deployed to Heroku. Follow these steps if you want to 
 6. Click **Reveal Config Vars**.
 7. Enter the following environmental variables - these are the same as in **env.py** if you followed the Gitpod steps:
 
-| Key            | Value                                                                       |
-| -------------- | --------------------------------------------------------------------------- |
-| DATABASE_URL   | YOUR ELEPHANTSQL URL FROM EARLIER                                           |
-| SECRET_KEY     | A SECRET KEY                                                                |
-| CLOUDINARY_URL | YOUR CLOUDINARY URL FROM EARLIER (without the CLOUDINARY_URL= at the start) |
+| Key            | Value                                                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| DATABASE_URL   | Your ElephantSQL URL from earlier                                                                                  |
+| SECRET_KEY     | Any secret key                                                                                                     |
+| CLOUDINARY_URL | Your Cloudinary URL from earlier (without the CLOUDINARY_URL= at the start)                                        |
+| ALLOWED_HOST   | Your deployed back-end Heroku app URL (example: `project-5-backend.herokuapp.com`)                                 |
+| CLIENT_ORIGIN  | Your deployed front-end Heroku app URL including the protocol (example: `https://project-5-pokebox.herokuapp.com`) |
 
 8. Click **Deploy** from the menu.
 9. Click **GitHub - Connect to GitHub**, and if prompted to login to GitHub.
@@ -87,15 +93,3 @@ Pokébox API is currently deployed to Heroku. Follow these steps if you want to 
 13. Scroll to the bottom and click **Deploy Branch**.
 14. Pay attention to the log and look out for any errors.
 15. If it was successful your app will now be live.
-
-## settings.py
-
-You will need to change the variable `CORS_ALLOWED_ORIGINS` found in [settings.py](https://github.com/paulio11/P5-Pokebox-API/blob/main/pokebox/settings.py). It must contain the URL of your deployed front-end project.
-
-**Example:**
-
-```
-CORS_ALLOWED_ORIGINS = [
-    "YOUR URL HERE",
-]
-```
