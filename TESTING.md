@@ -73,7 +73,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 | test_perform_create_with_user               | Logged in users can create a comment                             | ✓      |
 | **CommentDetailTests**                      |
 | test_invalid_comment_id                     | Invalid comment ID parameter returns a 404 response              | ✓      |
-| test_valid_comment_id                       | Valid comment ID parameter returns a 200 reponse                 | ✓      |
+| test_valid_comment_id                       | Valid comment ID parameter returns a 200 response                | ✓      |
 | test_user_can_edit_comment                  | A logged in user can edit their own comments                     | ✓      |
 | test_user_cant_edit_someone_elses_comment   | A user can't edit a comment they don't own                       | ✓      |
 | test_logged_out_user_cant_edit              | A logged out user can't edit a comment                           | ✓      |
@@ -93,7 +93,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 | test_perform_create_with_user            | Logged in users can create a like                         | ✓      |
 | **LikeDetailTests**                      |
 | test_invalid_like_id                     | Invalid like ID parameter returns a 404 response          | ✓      |
-| test_valid_like_id                       | Valid like ID parameter returns a 200 reponse             | ✓      |
+| test_valid_like_id                       | Valid like ID parameter returns a 200 response            | ✓      |
 | test_user_can_delete_like                | A logged in user can delete their likes                   | ✓      |
 | test_user_cant_delete_someone_elses_like | A user can't delete a like they don't own                 | ✓      |
 | test_logged_out_user_cant_delete_like    | A logged out user can't delete a comment                  | ✓      |
@@ -169,7 +169,7 @@ In addition to automated testing I carried out the following manual tests for as
 | Profiles can be ordered by the owner's username in ascending order                  | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=owner__username)  |
 | Profiles can be ordered by the owner's username in descending order                 | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=-owner__username) |
 | Profiles can be ordered by their creation date in ascending order                   | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=created)          |
-| Profiles can be ordered by theor creation date in descending order                  | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=-created)         |
+| Profiles can be ordered by their creation date in descending order                  | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=-created)         |
 | Profiles can be ordered by the size of their Pokémon collection in ascending order  | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=col_size)         |
 | Profiles can be ordered by the size of their Pokémon collection in descending order | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?ordering=-col_size)        |
 | Profiles can be filtered by the owner's username - Example: **"ash"**               | ✓      | [Link](https://project-5-backend.herokuapp.com/profiles/?owner__username=ash)       |
@@ -187,9 +187,9 @@ In addition to automated testing I carried out the following manual tests for as
 
 ### Comments
 
-| Test                                                          | Result | Link To Result                                            |
-| ------------------------------------------------------------- | ------ | --------------------------------------------------------- |
-| Comments are sorted by their creation date in desending order | ✓      | [Link](https://project-5-backend.herokuapp.com/comments/) |
+| Test                                                           | Result | Link To Result                                            |
+| -------------------------------------------------------------- | ------ | --------------------------------------------------------- |
+| Comments are sorted by their creation date in descending order | ✓      | [Link](https://project-5-backend.herokuapp.com/comments/) |
 
 ### Pokemon ArrayField in Profile Model
 

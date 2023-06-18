@@ -44,7 +44,7 @@ The GitHub project board feature was used to keep track of what I was working on
 
 The models required for this project are:
 
-- **Post** - for user diary entires.
+- **Post** - for user diary entries.
 - **Comment** - for replies to diary entries.
 - **Like** - for user likes on diary entries.
 - **Profile** - for a user's profile information and Pokémon collection.
@@ -180,7 +180,7 @@ Each view provides a response to the front-end based on the request. They are re
   - The `queryset` attribute is set to retrieve a list of Profile objects from the database. The queryset is annotated with an `ExpressionWrapper()` which uses a built in Postgresql function called `array_length` to count the length of the `pokemon` array field and return it as a new field.
   - Specifies three filter backends: `filters.SearchFilter`, `filters.OrderingFilter` and `DjangoFilterBackend`.
   - The `ordering_fields` attribute defines the fields that can be used for ordering the profile, which include `owner__username`, `col_size`, and `created`.
-  - The `filterset_fields` is set to `owner__username` so the a specific user's profile can easily be found.
+  - The `filterset_fields` is set to `owner__username` so a specific user's profile can easily be found.
   - The `search_fields` is set to `owner__username` so a user can search for a trainer by their username.
 
 ### [Other](https://github.com/paulio11/P5-Pokebox-API/blob/main/pokebox/views.py)
@@ -274,7 +274,7 @@ Deployment steps can be found [here](https://github.com/paulio11/P5-Pokebox-API/
 - [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX.
 - [Pillow](https://pypi.org/project/Pillow/) - A Python Imaging Library that adds image processing capabilities to the Python interpreter.
 - [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language. Using a Postgres database was essential for this project as my profile model contains an ArrayField which is incompatible with the default sqlite database used by django.
-- [Coverage](https://pypi.org/project/coverage/) - To check full for automated test coverage.
+- [Coverage](https://pypi.org/project/coverage/) - To check for 100% automated test coverage.
 - [dj-rest-auth](https://dj-rest-auth.readthedocs.io/en/latest/) - Provides a set of API endpoints that handle user registration and authentication.
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - An integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
 - [django-cors-headers](https://pypi.org/project/django-cors-headers/) - Adds Cross-Origin Resource Sharing (CORS) headers to responses. This allows in-browser requests to the Django application from other origins.
