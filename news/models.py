@@ -5,6 +5,7 @@ from django_resized import ResizedImageField
 
 class News(models.Model):
     created = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=100)
     body = models.TextField(max_length=1000)
     image = ResizedImageField(
         upload_to="news/",
@@ -19,7 +20,7 @@ class News(models.Model):
         verbose_name_plural = "News"
 
     def __str__(self):
-        return f"News {self.id}"
+        return f"News: {self.title}"
 
 
 class Announcement(models.Model):
