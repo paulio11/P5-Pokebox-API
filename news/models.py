@@ -11,7 +11,7 @@ class News(models.Model):
         upload_to="news/",
         blank=True,
         null=True,
-        size=[600, None],
+        size=[666, None],
         force_format="WEBP",
     )
 
