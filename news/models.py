@@ -17,8 +17,6 @@ class News(models.Model):
 class Announcement(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     body = models.TextField(max_length=1000)
-    read = models.ManyToManyField(
-        to=User, related_name="read_announcements", blank=True)
 
     class Meta:
         ordering = ["-created"]

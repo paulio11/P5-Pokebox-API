@@ -29,7 +29,7 @@ class AnnouncementList(generics.ListCreateAPIView):
     """
     serializer_class = AnnouncementSerializer
     permission_classes = [IsAdminOrReadOnly]
-    queryset = Announcement.objects.all().order_by("-created")
+    queryset = Announcement.objects.all().order_by("-created")[:1]
 
 
 class AnnouncementDetail(generics.RetrieveUpdateDestroyAPIView):

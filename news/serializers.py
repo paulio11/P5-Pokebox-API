@@ -38,5 +38,5 @@ class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Announcement
         fields = [
-            "id", "body", "created", "read"
+            "id", "body", "created",
         ]
