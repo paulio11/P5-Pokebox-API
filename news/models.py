@@ -1,10 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_resized import ResizedImageField
 
 
 class News(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     body = models.TextField(max_length=1000)
+    image = ResizedImageField(
+        upload_to="news/",
+        blank=True,
+        null=True,
+        size=[600, None],
+        force_format="WEBP",
+    )
 
     class Meta:
         ordering = ["-created"]
