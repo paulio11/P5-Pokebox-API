@@ -15,7 +15,10 @@ class NewsFilter(rest_framework.FilterSet):
 
     class Meta:
         model = News
-        fields = ['category']
+        fields = {
+            "category": ["exact"],
+            "id": ["exact"],
+        }
 
 
 class NewsList(generics.ListCreateAPIView):
