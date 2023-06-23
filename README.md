@@ -217,8 +217,8 @@ Each view provides a response to the front-end based on the request. They are re
   - Also allows the use of a news item's ID field as the filter, so a specific item can be loaded and displayed.
 - **`NewsList()`, `NewsDetail()`, `AnnouncementList()` and `AnnouncementDetail()`**
   - As is the norm, these two views define the relevant serializer for the news and announcement model.
-  - There is no perform create function this time as an owner is not a required field for these models.
-  - `IsAdminOrReadOnly` is defined as the permission class in order to allow only admin users will access.
+  - There is no perform create function this time as owner is not a required field for these models.
+  - `IsAdminOrReadOnly` is defined as the permission class in order to allow only admin users full access.
 
 ### [Profile Views](https://github.com/paulio11/P5-Pokebox-API/blob/main/profiles/views.py)
 

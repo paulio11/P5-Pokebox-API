@@ -213,7 +213,7 @@ My goal for automated testing was to reach 100% coverage using the Python librar
 
 ## Manual Testing
 
-In addition to automated testing I carried out the manual tests below for aspects not covered with automated testing, note this is also covered in manual front-end testing.
+In addition to automated testing I carried out the manual tests below for aspects not covered with automated testing, note this is also covered by comprehensive manual front-end testing.
 
 ### Profiles
 
