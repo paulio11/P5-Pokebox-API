@@ -1,4 +1,8 @@
 from rest_framework.test import APITestCase
+from django.test import TestCase
+from django.contrib.auth.models import User
+from rest_framework import serializers
+from .serializers import CurrentUserSerializer
 
 
 # VIEW TESTS
@@ -52,3 +56,23 @@ class LogoutRouteTest(APITestCase):
             response.cookies["p5-pokebox-refresh-token"]["samesite"], "None"
         )
         self.assertTrue(response.cookies["p5-pokebox-refresh-token"]["secure"])
+
+
+# SERIALIZER TESTS
+
+class UserSerializerTests(TestCase):
+    def test_user_is_not_staff(self):
+        user = User.objects.create_user(
+            username="testuser", password="pass", is_staff=False)
+        serializer = CurrentUserSerializer(user)
+        serialized_data = serializer.data
+        is_staff = serialized_data["is_staff"]
+        self.assertFalse(is_staff)
+
+    def test_admin_is_staff(self):
+        admin = User.objects.create_user(
+            username="admin", password="pass", is_staff=True)
+        serializer = CurrentUserSerializer(admin)
+        serialized_data = serializer.data
+        is_staff = serialized_data["is_staff"]
+        self.assertTrue(is_staff)
