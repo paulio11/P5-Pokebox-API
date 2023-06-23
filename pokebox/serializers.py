@@ -6,7 +6,7 @@ class CurrentUserSerializer(UserDetailsSerializer):
     """
     Serializer for the current authenticated User, extending
     UserDetailsSerializer from dj_rest_auth. Includes id and
-    avatar field from the user's profile.
+    avatar field from the user's profile, and if they are staff.
     """
 
     profile_id = serializers.ReadOnlyField(source="profile.id")

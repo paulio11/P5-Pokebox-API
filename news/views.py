@@ -7,6 +7,9 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 class NewsFilter(rest_framework.FilterSet):
+    """
+    Provides filtering options for news instances.
+    """
     category = rest_framework.MultipleChoiceFilter(
         field_name="category",
         choices=News.CATEGORIES,

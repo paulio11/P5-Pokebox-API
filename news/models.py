@@ -4,6 +4,12 @@ from django_resized import ResizedImageField
 
 
 class News(models.Model):
+    """
+    Represents a news article. Includes creation date, a title, body
+    (the article) text, an optional image, and category chosen from a list.
+    Ordered by creation date.
+    """
+
     CATEGORIES = (
         ("Games", "Games"),
         ("Anime", "Anime"),
@@ -28,10 +34,14 @@ class News(models.Model):
         verbose_name_plural = "News"
 
     def __str__(self):
-        return f"{self.title}: {self.title}"
+        return f"News {self.id} - {self.title}"
 
 
 class Announcement(models.Model):
+    """
+    Represents an announcement, a simple model including only creation date
+    and body (the announcement) text. Ordered by creation date.
+    """
     created = models.DateTimeField(auto_now_add=True)
     body = models.TextField(max_length=1000)
 
