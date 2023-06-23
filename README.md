@@ -48,6 +48,8 @@ The models required for this project are:
 - **Comment** - for replies to diary entries.
 - **Like** - for user likes on diary entries.
 - **Profile** - for a user's profile information and Pokémon collection.
+- **Announcement** - for admin user's to post website announcements.
+- **News** - for admin user's to news items.
 
 **Entity-Relationship Diagram:**
 
@@ -94,6 +96,25 @@ The models required for this project are:
 
 The profile object is automatically created for each new user using a `post_save` signal.
 
+#### Announcement Model
+
+| Name    | Type          | Details           | Notes                                 |
+| ------- | ------------- | ----------------- | ------------------------------------- |
+| id      | Primary Key   |                   |                                       |
+| created | DateTimeField | auto_now_add=True | Date of creation, automatically added |
+| body    | CharField     | max_length=1000   | The body of the announcement.         |
+
+#### News Model
+
+| Name     | Type              | Details                                                              | Notes                                                               |
+| -------- | ----------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| id       | Primary Key       |                                                                      |                                                                     |
+| created  | DateTimeField     | auto_now_add=True                                                    | Date of creation, automatically added                               |
+| title    | TextField         | max_length=100                                                       | The title of the news item                                          |
+| body     | CharField         | max_length=1000                                                      | The body of the news item                                           |
+| image    | ResizedImageField | blank=True, upload_to="news/", size=[666, None], force_format="WEBP" | Optional image for the news item, resized and the format is changed |
+| category | CharField         | max_length=5, choices = (Anime, TCG, Games, Other)                   | Category of the news item, with a selectable list of options        |
+
 [Back to top 🔺](#pokébox-backend--api)
 
 ## Serializers
@@ -135,11 +156,25 @@ The profile serializer provides the following to the API view:
 - **Pokemon** - Defines this field as a list that can be empty.
 - **col_size** - Collection Size, defined as a read only field.
 
+### [Announcement Serializer](https://github.com/paulio11/P5-Pokebox-API/blob/main/news/serializers.py)
+
+The announcement serializer provides the following to the API view:
+
+- **Created** - Provided by the function `get_created()` which returns a formatted date string.
+
+### [News Serializer](https://github.com/paulio11/P5-Pokebox-API/blob/main/news/serializers.py)
+
+The news serializer provides the following to the API view:
+
+- **Created** - Provided by the function `get_created()` which returns a formatted date string.
+
 ### [CurrentUser Serializer](https://github.com/paulio11/P5-Pokebox-API/blob/main/pokebox/serializers.py)
 
 Defined by `REST_AUTH_SERIALIZERS` variable in settings. The current user serializer extends DJ Rest Auth's UserDetailsSerializer to provide this additional information:
 
 - **Profile ID** - Provides the current user's profile ID, used on the front-end to provide a link to their profile.
+- **Profile Avatar** - Provides the current user's profile avatar, used on the front-end to display the logged in user's avatar.
+- **Is Staff** - A boolean value that allows the front-end website to conditionally render specific elements if the logged in user is an admin.
 
 [Back to top 🔺](#pokébox-backend--api)
 
@@ -150,7 +185,7 @@ Each view provides a response to the front-end based on the request. They are re
 ### [Post Views](https://github.com/paulio11/P5-Pokebox-API/blob/main/posts/views.py)
 
 - **`PostList()` and `PostDetail()`**
-  - Inherits from the `generics.ListCreateAPIView` class. It specifies the serializer class as `PostSerializer` and the permission classes as `permissions.IsAuthenticatedOrReadOnly`.
+  - Inherits from the `generics.ListCreateAPIView` and `generics.RetrieveUpdateDestroyAPIView` class respectively. It specifies the serializer class as `PostSerializer` and the permission classes as `permissions.IsAuthenticatedOrReadOnly`.
   - The `queryset` attribute is set to retrieve a list of Post objects from the database. The queryset is annotated with the counts of distinct likes and comments for each post and ordered by the creation date in descending order.
   - Specifies three filter backends: `filters.SearchFilter`, `filters.OrderingFilter` and `DjangoFilterBackend`.
   - The `ordering_fields` attribute defines the fields that can be used for ordering the posts, which include like_count, comment_count, and created.
@@ -158,7 +193,7 @@ Each view provides a response to the front-end based on the request. They are re
   - The `search_fields` are set to `body` and `owner__username` so a user can search for a post by either the owner of the post or by words in the body text.
   - The `perform_create()` method is overridden to set the owner of a newly created post to the authenticated user making the request.
 - **`PostFilter()`**
-  - Inherits from `rest_framework.FilterSet`. It is used to create filters for the Post model.
+  - Inherits from `rest_framework.FilterSet`. It is used to define filters for the Post model.
   - Defines the `has_image` filter as a `rest_framework.BooleanFilter`. This filter is associated with the image field of the Post model.
   - Returns a filtered queryset that excludes posts with an empty image field. If the value is False or None, it returns the original queryset without applying any filtering.
 
@@ -172,6 +207,18 @@ Each view provides a response to the front-end based on the request. They are re
 
 - **`LikeList()` and `LikeDetail()`**
   - As above these views define the relevant serializer and permissions for the Like model and overrides like creation to provide the logged in user as owner.
+
+### [News & Announcement Views](https://github.com/paulio11/P5-Pokebox-API/blob/main/news/views.py)
+
+- **`NewsFilter()`**
+  - Inherits from `rest_framework.FilterSet`. It is used to define filters for the News model.
+  - Defines `category` as a multiple choice filter. This filter is assciated with the category field and uses the same variable for choices.
+  - Returns a filtered queryset that will only show news items that match the category defined in the url parameters.
+  - Also allows the use of a news item's ID field as the filter, so a specific item can be loaded and displayed.
+- **`NewsList()`, `NewsDetail()`, `AnnouncementList()` and `AnnouncementDetail()`**
+  - As is the norm, these two views define the relevant serializer for the news and announcement model.
+  - There is no perform create function this time as an owner is not a required field for these models.
+  - `IsAdminOrReadOnly` is defined as the permission class in order to allow only admin users will access.
 
 ### [Profile Views](https://github.com/paulio11/P5-Pokebox-API/blob/main/profiles/views.py)
 
@@ -194,7 +241,7 @@ Each view provides a response to the front-end based on the request. They are re
 
 ## Permissions
 
-This project uses one custom permission `IsOwnerOrReadOnly`. This is used in the PostDetail, CommentDetail, ProfileDetail and LikeDetail views. This permission grants full CRUD access to the owner of the object and read-only access to others.
+This project uses two custom permissions `IsOwnerOrReadOnly` and `IsAdminOrReadOnly`. The first is used in the PostDetail, CommentDetail, ProfileDetail and LikeDetail views. This permission grants full CRUD access to the owner of the object and read-only access to others. The second is used on views relating to the News and Announcement models. Granting full access to admin users, and read-only access to a normal user.
 
 [Back to top 🔺](#pokébox-backend--api)
 
