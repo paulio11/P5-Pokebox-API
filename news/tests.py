@@ -116,7 +116,7 @@ class NewsDetailTests(APITestCase):
         response = self.client.get("/news/1")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_no_user_edit(self):
+    def test_no_user_cant_edit(self):
         response = self.client.patch("/news/1", {"body": "updated body"})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
@@ -205,7 +205,7 @@ class AnnouncementDetailTests(APITestCase):
         response = self.client.get("/announcements/1")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_no_user_edit(self):
+    def test_no_user_cant_edit(self):
         response = self.client.patch(
             "/announcements/1", {"body": "updated announcements"})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
